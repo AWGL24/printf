@@ -23,7 +23,7 @@ Our code is compiled like this.
 ## Testing
 
 ### main.c file test
-We've made a main.c file to were you are able to test if the program to see if our custom printf function works!
+We've made a main.c file were you are able to test if the program to see if our custom printf function works!
 ![image](https://user-images.githubusercontent.com/90794690/140665142-2010e5e0-df7c-4b66-bfa8-94649026d9b0.png)
 
 ## Output
