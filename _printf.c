@@ -57,6 +57,10 @@ int _printf(char *format, ...)
 					   /* Fetch '%' */
 			case '%' : _putchar('%');
 					   break;
+
+			case 'r' : _putchar('r');
+					   puts(r);
+						break;
 		}
 	}
 	/* Module 3: closing argument list to necessary clean-up */
