@@ -6,5 +6,8 @@
 int _printf(char *,...);
 char* convert(unsigned int, int);
 int _putchar(char c);
+int _puts(const char *s);
 void printnum(int n);
+int printstr(char *ch);
+int print_rev(char *s);
 #endif /* HEADER_H */

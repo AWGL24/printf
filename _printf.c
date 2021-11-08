@@ -1,69 +1,67 @@
 #include "main.h"
 int _printf(char *format, ...)
 {
-	char *p;
-	int i;
-	unsigned int u;
+	int i, index;
 	char *s;
+	va_list list;
 
-	/* Module 1: Initializing _printf arguments */
-	va_list argp;
-	va_start(argp, format);
+	if (format == NULL)
+		return (-1);
 
-	p = format;
+	if (format[0] == '%' && format[1] == '\0')
+		return (-1);
 
-	for (p = format; *p != '\0'; p++)
+	va_start(list, format);
+
+	for (index = 0; format[index] != '\0'; index++)
 	{
-		if (*p != '%')
+		if (format[i] != '%')
 		{
-			putchar(*p);
+			_putchar(format);
 			continue;
 		}
-		p++;
+		format++;
 
 		/* Module 2: Fetching and executing arguments */
-		switch(*p)
+		switch(format)
 		{
-			/* Fetch char arguments */
-			case 'c' : i = va_arg(argp, int);
-					   putchar(i);
+			/* Fetch char argument */
+			case 'c' : i = va_arg(list,int);
+					   _putchar(i);
 					   break;
 
-					   /* Fetch decimal/integer arguments */
-			case 'd' : i = va_arg(argp, int);
-					   if (i < 0)
+					   /* Fetch Decimal/Integer argument */
+			case 'd' : i = va_arg(list,int);
+					   if(i<0)
 					   {
 						   i = -i;
-						   putchar('-');
+						   _putchar('-');
 					   }
-					   puts(convert(i, 10));
+					   _puts(convert(i,10));
 					   break;
 
 					   /* Fetch Octal representation */
-			case 'o' : i = va_arg(argp, unsigned int);
-					   puts(convert(i, 8));
+			case 'o': i = va_arg(list,unsigned int);
+					  _puts(convert(i,8));
+					  break; 
+
+					  /* Fetch string */
+			case 's': s = va_arg(list,char *);
+					  _puts(s);
+					  break;
+
+					  /* Fetch rev string */
+			case 'r' : s = va_arg(list, char *);
+					   print_rev(s);
 					   break;
 
-					   /* Fetch string */
-			case 's' : s = va_arg(argp, char *);
-					   puts(s);
-					   break;
-
-					   /* Fetch hexadecimal representation */
-			case 'x' : u = va_arg(argp, unsigned int);
-					   puts(convert(u, 16));
-					   break;
-
-					   /* Fetch '%' */
-			case '%' : _putchar('%');
-					   break;
-
-			case 'r' : _putchar('r');
-					   puts(r);
-						break;
+					   /* Fetch Hexadecimal representation */
+			case 'x': i = va_arg(list,unsigned int);
+					  _puts(convert(i,16));
+					  break;
 		}
 	}
 	/* Module 3: closing argument list to necessary clean-up */
-	va_end(argp);
+	va_end(list);
 	return (0);
 }
