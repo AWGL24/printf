@@ -6,4 +6,5 @@
 int _printf(char *,...);
 char* convert(unsigned int, int);
 int _putchar(char c);
+void printnum(int n);
 #endif /* HEADER_H */
