@@ -27,7 +27,7 @@ int _puts(const char *s)
 		i++;
 	}
 
-	return (1);
+	return (i);
 }
 /**
  *
