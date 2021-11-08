@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -26,10 +25,6 @@ int _puts(const char *s)
 			return (EOF);
 		}
 		i++;
-	}
-	if (_putchar('\n') == EOF)
-	{
-		return (EOF);
 	}
 
 	return (1);
