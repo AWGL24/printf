@@ -39,6 +39,15 @@ int _printf(char *format, ...)
 					   _puts(convert(i,10));
 					   break;
 
+			case 'i' : i = va_arg(list, int);
+					   if (i < 0)
+					   {
+						   i = -i;
+						   len += _putchar('-');
+					   }
+					   _puts(convert(i, 10));
+					   break;
+
 					   /* Fetch Octal representation */
 			case 'o': i = va_arg(list,unsigned int);
 					  len += _puts(convert(i,8));
