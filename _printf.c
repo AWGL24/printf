@@ -67,6 +67,9 @@ int _printf(char *format, ...)
 			case 'x': i = va_arg(list,unsigned int);
 					  len += _puts(convert(i,16));
 					  break;
+			default:
+					  continue;
+					
 		}
 	}
 	/* Module 3: closing argument list to necessary clean-up */
