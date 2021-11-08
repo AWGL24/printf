@@ -33,16 +33,26 @@ int _puts(const char *s)
  *
  *
  */
-void printnum(int n)
+int printnum(int n, int count)
 {
-	int a = n / 10;
+	unsigned int number;
 
-	if (n > 9)
+	if (n < 0)
 	{
-		n -= 10 * a;
-		printnum(a);
+		_putchar('-');
+		count++;
+		number = (n * -1);
 	}
-	_putchar('0' + n);
+	else
+		number = n;
+
+	if (number / 10)
+	{
+		count = printnum(number / 10, count);
+	}
+	_putchar(number % 10 + '0');
+	count++;
+	return (count);
 }
 /**
  *

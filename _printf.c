@@ -1,29 +1,27 @@
 #include "main.h"
 int _printf(char *format, ...)
 {
-	int i, index;
+	char *p;
+	int i;
 	char *s;
+
+	/* Module 1: Initializing _printf arguments */
 	va_list list;
-
-	if (format == NULL)
-		return (-1);
-
-	if (format[0] == '%' && format[1] == '\0')
-		return (-1);
-
 	va_start(list, format);
 
-	for (index = 0; format[index] != '\0'; index++)
+	p = format;
+
+	for (p = format; *p != '\0'; p++)
 	{
-		if (format[i] != '%')
+		if (*p != '%')
 		{
-			_putchar(format);
+			_putchar(*p);
 			continue;
 		}
-		format++;
+		p++;
 
 		/* Module 2: Fetching and executing arguments */
-		switch(format)
+		switch(*p)
 		{
 			/* Fetch char argument */
 			case 'c' : i = va_arg(list,int);
