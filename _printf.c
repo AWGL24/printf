@@ -1,75 +1,34 @@
 #include "main.h"
 int _printf(char *format, ...)
 {
-	char *p;
 	int i;
-	char *s;
 	int len;
 
-	/* Module 1: Initializing _printf arguments */
 	va_list list;
 	va_start(list, format);
 
-	p = format;
-
-	for (p = format; *p != '\0'; p++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*p != '%')
+		if (format[i] == '%')
 		{
-			len += _putchar(*p);
-			continue;
+			if (format[i + 1] == 'd' || format[i + 1] == 'i')
+			{
+				len += printnum(format[i] + 1);
+			}
+			else if (format[i + 1] == 'c')
+			{
+				len += _putchar(format[i] + 1);
+			}
+			else if (format[i + 1] == 's')
+			{
+				len += _puts(format[i] + 1);
+			}
 		}
-		p++;
-
-		/* Module 2: Fetching and executing arguments */
-		switch(*p)
+		else
 		{
-			/* Fetch char argument */
-			case 'c' : i = va_arg(list,int);
-					   len += _putchar(i);
-					   break;
-
-					   /* Fetch Decimal/Integer argument */
-			case 'd' : i = va_arg(list,int);
-					   if(i<0)
-					   {
-						   i = -i;
-						   len += _putchar('-');
-					   }
-					   _puts(convert(i,10));
-					   break;
-
-			case 'i' : i = va_arg(list, int);
-					   if (i < 0)
-					   {
-						   i = -i;
-						   len += _putchar('-');
-					   }
-					   _puts(convert(i, 10));
-					   break;
-
-					   /* Fetch Octal representation */
-			case 'o': i = va_arg(list,unsigned int);
-					  len += _puts(convert(i,8));
-					  break; 
-
-					  /* Fetch string */
-			case 's': s = va_arg(list,char *);
-					  len += _puts(s);
-					  break;
-
-					  /* Fetch rev string */
-			case 'r' : s = va_arg(list, char *);
-					   len += print_rev(s);
-					   break;
-
-					   /* Fetch Hexadecimal representation */
-			case 'x': i = va_arg(list,unsigned int);
-					  len += _puts(convert(i,16));
-					  break;
+			_putchar(format[i]);
 		}
-	}
-	/* Module 3: closing argument list to necessary clean-up */
+
 	va_end(list);
 	return (len);
 }
