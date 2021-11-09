@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				len += caseswitch(format[idx++], list);
+				len += caseswitch(format[++idx], list);
 			}
 		}
 		else
