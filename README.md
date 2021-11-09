@@ -18,6 +18,7 @@ Our **function** is successfully compiled and executed and should return the num
 
 ## Compilation
 Our code is compiled like this.
+
 ![image](https://user-images.githubusercontent.com/90794690/140665010-771cae54-44de-4d9a-b7c0-3e509866365a.png)
 
 ## Testing
