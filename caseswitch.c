@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * caseswitch - function that select wich function we need
- * @letter: char the user inputs
  * @list: variadical arguments from printf
+ * @ch: character
  * Return: lenght of what is printed
  */
 int caseswitch(char ch, va_list list)

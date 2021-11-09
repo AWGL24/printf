@@ -46,7 +46,6 @@ printf is a control parameter used by functions to output a certain sentence or 
 
 B. Example
 P.
-
 int main (int)
 
     _printf("Hello world")
