@@ -14,7 +14,7 @@ Our **function** is successfully compiled and executed and should return the num
  - **Format** is a string of characters. The format string is composed of zero or more directives
  - Return: The amount of characters printed excpet the null byte.
  - Write output to stdout, the standard output stream
- - For more info `man 3 printf`
+ - For more info `man_3_printf`
 
 ## Compilation
 Our code is compiled like this.
