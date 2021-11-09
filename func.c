@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- *
- *
+ * printstr - function that prints a string
+ * @s: string
+ * Return: len
  */
 int printstr(char *s)
 {
@@ -17,8 +18,9 @@ int printstr(char *s)
 	return (i);
 }
 /**
- *
- *
+ * printchar - function that prints a char
+ * @c: char
+ * Return: 1
  */
 int printchar(char c)
 {
@@ -26,8 +28,10 @@ int printchar(char c)
 	return (1);
 }
 /**
- *
- *
+ * printnum - function that prints a number with putchar using recursion
+ * @n: number
+ * @counter: int that keeps track of the number of ints printed
+ * Return: counter
  */
 int printnum(int n, int counter)
 {
@@ -51,8 +55,9 @@ int printnum(int n, int counter)
 	return (counter);
 }
 /**
- *
- *
+ * _putchar - writes char c
+ * @c: char
+ * Return: 1
  */
 int _putchar(char c)
 {

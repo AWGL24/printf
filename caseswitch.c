@@ -1,29 +1,23 @@
 #include "main.h"
 /**
- *
- *
+ * caseswitch - function that select wich function we need
+ * @letter: char the user inputs
+ * @list: variadical arguments from printf
+ * Return: lenght of what is printed
  */
-int caseswitch(char ch, va_list list)
+int caseswitch(char letter, va_list list)
 {
-	int idx = 0;
-	int hold;
-
-	mod x[] = {
-		{'s', printstr};
-		{'c', _printchar};
-		{'i', printnum};
-		{'d', printnum};
-		{'\0', NULL};
-	}
-
-	va_start(list);
-
-	for (idx = 0; x[idx].l != '\0'; idx++)
+	switch (letter)
 	{
-		if (x[idx].l == ch)
-		{
-			hold = x[idx].f(list);
-			return (hold);
-		}
+		case 's':
+			return (printstr(va_arg(list, char *)));
+
+		case 'c':
+			return (printchar((va_arg(list, int))));
+		case 'i':
+		case 'd':
+			return (printnum((va_arg(list, int)), 0));
 	}
+	va_end(list);
+	return (0);
 }
