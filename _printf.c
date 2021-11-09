@@ -1,13 +1,8 @@
 #include "main.h"
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
-	char *p;
-	int i;
-	char *s;
-	int len;
-
-	/* Module 1: Initializing _printf arguments */
 	va_list list;
+<<<<<<< HEAD
 	va_start (list, format);
 
 	p = format;
@@ -72,6 +67,12 @@ int _printf(char *format, ...)
 		}
 	}
 	/* Module 3: closing argument list to necessary clean-up */
+=======
+	int n;
+
+	va_start(list, format);
+	n = _printf(format, list, 0);
+>>>>>>> c5f45ea2300e27e500b9130cf6b0653b755813b1
 	va_end(list);
-	return (len);
+	return (n);
 }

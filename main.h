@@ -1,13 +1,17 @@
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef MAIN_H
+#define MAIN_H
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-int _printf(char *,...);
+typedef struct percentage {
+	char l;
+	int (*f)(va_list);
+}mod;
+int caseswitch(char ch, va_list list);
+int _printf(const char *format, ...);
 char* convert(unsigned int, int);
 int _putchar(char c);
-int _puts(const char *s);
-int printnum(int n, int count);
-int printstr(char *ch);
-int print_rev(char *s);
-#endif /* HEADER_H */
+int printstr(char *s);
+int printchar(char c);
+int printnum(int n, int counter);
+#endif /* MAIN_H */

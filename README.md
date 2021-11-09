@@ -23,17 +23,17 @@ Our code is compiled like this.
 ## Testing
 
 ### main.c file test
-We've made a main.c file were you are able to test if the program to see if our custom printf function works!
+We've made a main.c file were you are able to test the program to see if our custom printf function works!
 ![image](https://user-images.githubusercontent.com/90794690/140665142-2010e5e0-df7c-4b66-bfa8-94649026d9b0.png)
 
 ## Output
-Your should look liek this after the compilation process is finished.
+Your should look like this after the compilation process is finished.
 ![image](https://user-images.githubusercontent.com/90794690/140665313-cc945f94-dab8-4445-90fe-15c341115ac2.png)
  
 ## Bugs
 No bugs have beene found in our custom printf function as of this time.
 
-##About
+## About
 
 This is a project for the Holberton School made by two upcoming software developers and authors of this README.me file.
 
