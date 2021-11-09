@@ -1,0 +1,65 @@
+.BI Manpage for our prinf function.
+.BI Contact Ian M. Bonano(ibonano993@gmail.com) or Andrew Gonzalez(andrewwil1@hotmail.com) to correct errors or typos.
+.TH _PRINTF 3 2021-11-8 GNU
+.SH NAME
+printf \- format and print data
+.SH SYNOPSIS
+.B #include "main.h"
+.nf
+.B int _printf(const char *format, ...);
+.fi
+.P
+Here we analize through the formal printing every character one by one also cheking if we find any format modifier.
+If we do end up finding a format modifier, we pass the character after the escape character to the fuction called case_select.
+
+.B int _putchar(char c);
+.P
+This is a custom implementation of putchar that prints using write and returns 1 if it prints something.
+
+.B int _puts(const char *s);
+.P
+This is a custom implementation of puts that is used to write a line or string to the oputput stream (stdout)
+does not include the null character. It does not append a new line and return an interger.
+
+.B int printstr(char *ch);
+.P
+This analizes the passed string printing character by character and returns the amount of printed characters.
+Also checks if NULL is passed.
+
+.B int print_rev(char *s)
+.P
+This analizes the passed string printing character by character in reverse fashion and returns the amount of printed reversed characters.
+
+.B int printnum(int n, int count);
+.P
+Uses recursion to print one by one the passed int and returns the amount of numbers printed,
+if it finds a negative number converts it to positive and adds the character '-' in front of it.
+
+.SH DESCRIPTION
+printf is a control parameter used by functions to output a certain sentence or number.
+
+.SH 	--help
+	display this help and exit
+
+.SH 	--version
+	output version information and exit
+
+FORMAT controls the output as in C printf.  Interpreted sequences are:
+
+%S 	 string
+
+%i 	 integer
+
+%d 	 integer
+
+%c 	 character
+
+.SH SEE ALSO
+printf(3)
+
+Full documentation at: <https://www.gnu.org/software/coreutils/printf>
+or available locally via: info '(coreutils) printf invocation'
+.SH BUGS
+No known bugs.
+.SH AUTHORS
+Ian M. Bonano and Andrew Gonzalez.

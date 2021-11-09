@@ -8,7 +8,7 @@ int _printf(char *format, ...)
 
 	/* Module 1: Initializing _printf arguments */
 	va_list list;
-	va_start(list, format);
+	va_start (list, format);
 
 	p = format;
 
@@ -22,33 +22,33 @@ int _printf(char *format, ...)
 		p++;
 
 		/* Module 2: Fetching and executing arguments */
-		switch(*p)
+		switch (*p)
 		{
 			/* Fetch char argument */
-			case 'c' : i = va_arg(list,int);
-					   len += _putchar(i);
-					   break;
+			case 'c': i = va_arg(list, int);
+					  len += _putchar(i);
+					  break;
 
-					   /* Fetch Decimal/Integer argument */
-			case 'd' : i = va_arg(list,int);
-					   if(i<0)
-					   {
-						   i = -i;
-						   len += _putchar('-');
-					   }
-					   _puts(convert(i,10));
-					   break;
+					  /* Fetch Decimal/Integer argument */
+			case 'd': i = va_arg(list, int);
+					  if (i < 0)
+					  {
+						  i = -i;
+						  len += _putchar('-');
+					  }
+					  _puts(convert(i, 10));
+					  break;
 
-			case 'i' : i = va_arg(list, int);
-					   if (i < 0)
-					   {
-						   i = -i;
-						   len += _putchar('-');
-					   }
-					   _puts(convert(i, 10));
-					   break;
+			case 'i': i = va_arg(list, int);
+					  if (i < 0)
+					  {
+						  i = -i;
+						  len += _putchar('-');
+					  }
+					  _puts(convert(i, 10));
+					  break;
 
-					   /* Fetch Octal representation */
+					  /* Fetch Octal representation */
 			case 'o': i = va_arg(list,unsigned int);
 					  len += _puts(convert(i,8));
 					  break; 
@@ -68,8 +68,7 @@ int _printf(char *format, ...)
 					  len += _puts(convert(i,16));
 					  break;
 			default:
-					  continue;
-					
+
 		}
 	}
 	/* Module 3: closing argument list to necessary clean-up */
