@@ -44,6 +44,13 @@ printf is a control parameter used by functions to output a certain sentence or 
 .SH 	--version
 	output version information and exit
 
+B. Example
+P.
+
+int main (int)
+
+    _printf("Hello world")
+
 FORMAT controls the output as in C printf.  Interpreted sequences are:
 
 %S 	 string
