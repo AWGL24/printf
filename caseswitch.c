@@ -5,19 +5,27 @@
  * @list: variadical arguments from printf
  * Return: lenght of what is printed
  */
-int caseswitch(char letter, va_list list)
+int caseswitch(char ch, va_list list)
 {
-	switch (letter)
-	{
-		case 's':
-			return (printstr(va_arg(list, char *)));
+	int hold = 0, idx;
 
-		case 'c':
-			return (printchar((va_arg(list, int))));
-		case 'i':
-		case 'd':
-			return (printnum((va_arg(list, int)), 0));
+	mod x[] = {
+		{'c', printchar},
+		{'s', printstr},
+		{'i', printnum},
+		{'d', printnum},
+		{'\0', NULL},
+	};
+
+	for (idx = 0; x[idx].l != '\0'; idx++)
+	{
+		if (x[idx].l == ch)
+		{
+			hold += x[idx].f(list);
+			return (hold);
+		}
 	}
-	va_end(list);
-	return (0);
+	hold += _putchar('%');
+	hold += _putchar(ch);
+	return (hold);
 }

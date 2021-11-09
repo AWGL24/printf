@@ -8,35 +8,36 @@ int _printf(const char *format, ...)
 {
 	int idx, len = 0;
 	va_list list;
-	char mod[5] = {'c', 's', 'i', 'd', '\0'};
 
 	if (format == NULL)
+		return (-1);
+
+	va_start(list, format);
+
+	if (list == NULL)
 		return (-1);
 
 	if (format[0] == '%' && format[1] == '\0')
 		return (-1);
 
-	va_start(list, format);
-
 	for (idx = 0; format[idx] != '\0'; idx++)
 	{
-		if (format[idx] == '%')
+		if (format[idx] == '%' && format[idx + 1] != '\0')
 		{
-			if (modvalue(mod, format[idx + 1]))
+			if (format[idx + 1] == '%')
 			{
-				len += caseswitch(format[idx + 1], list);
-				idx++;
-			}
-			else if (format[idx] == '%' && format[idx + 1] == '%')
-			{
-				len += _putchar('%');
-				idx++;
-				continue;
+				len += _putchar(format[idx++]);
 			}
 			else
 			{
-				len += (_putchar(format[idx]));
+				len += caseswitch(format[idx++], list);
 			}
+		}
+		else
+		{
+			if (format[idx] == '%' && format[idx + 1] == '\0')
+				return (-1);
+			len += _putchar(format[idx]);
 		}
 	}
 	va_end(list);

@@ -4,9 +4,12 @@
  * @s: string
  * Return: len
  */
-int printstr(char *s)
+int printstr(va_list list)
 {
+	char *s;
 	int i;
+
+	s = va_arg(list, char *);
 
 	if (s == NULL)
 		s = "(null)";
@@ -22,8 +25,11 @@ int printstr(char *s)
  * @c: char
  * Return: 1
  */
-int printchar(char c)
+int printchar(va_list list)
 {
+	char c;
+
+	c = va_arg(list, int);
 	_putchar(c);
 	return (1);
 }
@@ -33,26 +39,41 @@ int printchar(char c)
  * @counter: int that keeps track of the number of ints printed
  * Return: counter
  */
-int printnum(int n, int counter)
+int printnum(va_list list)
 {
-	unsigned int num;
+	int num = 0, i = 0;
+	int count = 0;
+	int arr[13];
+	unsigned int n;
 
-	if (n < 0)
+	num = va_arg(list, int);
+
+	if (num < 0)
 	{
-		_putchar('-');
-		counter++;
-		num = (n * -1);
+		count += _putchar('-');
+		n = (num * -1);
 	}
 	else
-		num = n;
+		n = num;
 
-	if (num / 10)
+	if (n == 0)
 	{
-		counter = printnum(num / 10, counter);
+		count += _putchar(n + '0');
+		return (count);
 	}
-	_putchar(num % 10 + '0');
-	counter++;
-	return (counter);
+
+	while (n != 0)
+	{
+		arr[i] = n % 10;
+		n = n / 10;
+		i++;
+	}
+
+	for (i = i - 1; i >= 0; i--)
+	{
+		count += _putchar(arr[i] + '0');
+	}
+	return (count);
 }
 /**
  * _putchar - writes char c
