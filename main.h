@@ -4,10 +4,17 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
-typedef struct percentage {
+/**
+ *struct percentage - struct that finds the percentage
+ * @f: function pointers
+ * @l: character
+ *
+ */
+typedef struct percentage
+{
 	char l;
 	int (*f)(va_list list);
-}mod;
+} mod;
 int caseswitch(char ch, va_list list);
 int _printf(const char *format, ...);
 int _putchar(char c);
