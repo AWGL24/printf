@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * printstr - function that prints a string
- * @s: string
+ * @list: parameter
  * Return: len
  */
 int printstr(va_list list)
@@ -22,7 +22,7 @@ int printstr(va_list list)
 }
 /**
  * printchar - function that prints a char
- * @c: char
+ * @list: parameter
  * Return: 1
  */
 int printchar(va_list list)
@@ -35,9 +35,8 @@ int printchar(va_list list)
 }
 /**
  * printnum - function that prints a number with putchar using recursion
- * @n: number
- * @counter: int that keeps track of the number of ints printed
- * Return: counter
+ * @list: parameter
+ * Return: count
  */
 int printnum(va_list list)
 {
