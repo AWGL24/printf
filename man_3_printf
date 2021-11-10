@@ -44,11 +44,33 @@ printf is a control parameter used by functions to output a certain sentence or 
 .SH 	--version
 	output version information and exit
 
-B. Example
-P.
-int main (int)
+.B Example
+.P
+#include "main.h"
 
-    _printf("Hello world")
+int main ()
+
+    _printf("Hello world!! %s");
+    _printf("h %c");
+    _printf("43 %i");
+    _printf("93 %d");
+
+.B Output
+.P
+Hello World!!
+h
+43
+93
+
+FORMAT controls the output as in C printf.  Interpreted sequences are:
+
+%S      string - a group of characters
+
+%i      integer - Numbers
+
+%d      integer - Numbers
+
+%c      character - characters like "C", "h", "\0" etc...
 
 FORMAT controls the output as in C printf.  Interpreted sequences are:
 
