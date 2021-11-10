@@ -1,4 +1,0 @@
-#!/bin/bash
-betty *.h *.c
-rm a.out
-gcc *.c
